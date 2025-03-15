@@ -1,0 +1,15 @@
+@import "variables.scss";
+@import "utility.scss";
+
+.header {
+  padding: .5rem 0;
+  background-color: $primary; 
+
+  &__content {
+    margin: auto;
+  }
+}
+
+.logo {
+  width: 7.5rem;
+}
