@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { COCKTAIL_CATEGORIES } from '../../data-access/models/constants/cocktail.constants';
+import { COCKTAIL_SEARCH_TYPES } from '../../data-access/models/constants/cocktail.constants';
 import { APP_ROUTES } from './../../data-access/models/constants/route.constants';
 
 @Component({
@@ -10,7 +10,6 @@ import { APP_ROUTES } from './../../data-access/models/constants/route.constants
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  COCKTAIL_CATEGORIES = COCKTAIL_CATEGORIES;
+  COCKTAIL_SEARCH_TYPES = COCKTAIL_SEARCH_TYPES;
   APP_ROUTES = APP_ROUTES;
-
 }

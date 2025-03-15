@@ -1,1 +1,7 @@
-<p>cocktail-list works!</p>
+@if((cocktailFacdeService.filteredCocktails$ | async); as cocktails) {
+{{cocktails | json}}
+}
+
+@if((cocktailFacdeService.cocktailListError$ | async); as error) {
+{{error}}
+}
