@@ -1,11 +1,11 @@
 
-@import "variables.scss";
+@use "variables";
 
 .intro {
   margin-bottom: 1.5rem;
 
   &__headline {
-    color : $primary;
+    color : variables.$primary;
   }
 }
 
@@ -32,13 +32,13 @@
 
 .category-card {
   padding: 1rem;
-  background-color: $neutral;
-  border: 1px solid $secondary;
+  background-color: variables.$neutral;
+  border: 1px solid variables.$secondary;
   border-radius: .5rem;
   text-decoration: none;
 
   &:hover,&:active {
-    outline: 1px solid $primary;
+    outline: 1px solid variables.$primary;
     outline-offset: 2px;
   }
 
@@ -53,6 +53,6 @@
   }
 
   &__title {
-    color : $secondary;
+    color : variables.$secondary;
   }
 }

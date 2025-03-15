@@ -1,6 +1,6 @@
-@import "variables.scss";
-@import "utility.scss";
-@import "typography.scss";
+@use "variables";
+@use "utility";
+@use "typography";
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -14,5 +14,5 @@ body {
   font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-  background-color: $background;
+  background-color: variables.$background;
 }
