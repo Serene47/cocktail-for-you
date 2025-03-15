@@ -1,0 +1,14 @@
+
+.main {
+  &__content {
+    margin : 1.5rem auto;
+  
+    @media ( min-width : 768px ) {
+      margin : 2.25rem auto; 
+    }
+  
+    @media ( min-width : 992x ) {
+      margin : 2.25rem auto;
+    }
+  }
+}

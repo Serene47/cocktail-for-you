@@ -1,15 +1,12 @@
 @import "variables.scss";
-@import "utility.scss";
 
 .header {
   padding: .5rem 0;
   background-color: $primary; 
 
-  &__content {
-    margin: auto;
+  &__logo {
+    width: 7.5rem;
+    height: 2.813rem;
   }
 }
 
-.logo {
-  width: 7.5rem;
-}
