@@ -12,7 +12,7 @@ export class CocktailFacadeService {
   cocktailDataService = inject(CocktailsDataService);
   cocktailAdapterService = inject(CocktailAdapterService);
 
-  private cocktailListError = new Subject<string>();
+  private cocktailListError = new Subject<string | null>();
   cocktailListError$ = this.cocktailListError.asObservable();
   private cocktailListLoading = new BehaviorSubject(false);
   cocktailListLoading$ = this.cocktailListLoading.asObservable();
@@ -29,6 +29,7 @@ export class CocktailFacadeService {
 
   getAllCockTails(search: string): void {
     this.cocktailListLoading.next(true);
+    this.cocktailListError.next(null);
     this.cocktailDataService.getAll(search).subscribe({
       next: response => {
         this.cocktailListLoading.next(false);

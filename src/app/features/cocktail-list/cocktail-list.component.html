@@ -1,7 +1,18 @@
 @if((cocktailFacdeService.filteredCocktails$ | async); as cocktails) {
-{{cocktails | json}}
+
+@if(cocktails.length > 0) {
+<h3>You asked for {{type | titlecase}}, We got {{type | titlecase}}</h3>
+}
+
+<div class="cocktail-grid">
+  @for(cocktail of cocktails; track cocktail.id){
+  <app-cocktail-summary [cocktail]="cocktail"></app-cocktail-summary>
+  } @empty {
+  <span>{{COCKTAIL_LIST_EMPTY_MESSAGE}}</span>
+  }
+</div>
 }
 
 @if((cocktailFacdeService.cocktailListError$ | async); as error) {
-{{error}}
+<span>{{error}}</span>
 }

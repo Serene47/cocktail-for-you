@@ -13,7 +13,7 @@ export class CocktailAdapterService {
       alcoholicStatus: cocktailDTO.strAlcoholic,
       category: cocktailDTO.strCategory,
       name: cocktailDTO.strDrink,
-      thumbnail: `${cocktailDTO.strDrinkThumb}/${COCKTAIL_IMAGE_TYPES.SMALL}`
+      thumbnail: `${cocktailDTO.strDrinkThumb}/${COCKTAIL_IMAGE_TYPES.MEDIUM}`
     }
   }
 }
