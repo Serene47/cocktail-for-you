@@ -2,21 +2,17 @@
 @import "variables.scss";
 
 .intro {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   &__headline {
     color : $primary;
-    font-size: 1.75rem;
-
-    @media (min-width: 768px) {
-      font-size: 2.25rem;
-    }
   }
 }
 
 .quick-links {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
   &__item {
@@ -25,10 +21,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 31.25rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     flex-direction: row;
+    align-items: flex-start;
   }
 }
 
@@ -39,10 +37,19 @@
   border-radius: .5rem;
   text-decoration: none;
 
+  &:hover,&:active {
+    outline: 1px solid $primary;
+    outline-offset: 2px;
+  }
+
   &__image {
     width: 100%;
     max-width: 18.75rem;
     aspect-ratio: 1 / 1;
+    
+    &:hover,&:active {
+      outline: none
+    }
   }
 
   &__title {
