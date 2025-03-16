@@ -18,16 +18,16 @@ export class CocktailListFacadeService {
   cocktailListLoading$ = this.cocktailListLoading.asObservable();
 
   private processedCocktailList = new Subject<CocktailSummary[]>();
-  alchoholFilter = new BehaviorSubject<string>('');
+  alcoholFilter = new BehaviorSubject<string>('');
 
-  filteredCocktails$ = combineLatest([this.processedCocktailList, this.alchoholFilter])
+  filteredCocktails$ = combineLatest([this.processedCocktailList, this.alcoholFilter])
     .pipe(
-      map(([cocktails, alchoholFilter]) => {
+      map(([cocktails, alcoholFilter]) => {
         return cocktails;
       })
     );
 
-  getAllCockTails(search: string = ''): void {
+  fetchAllCockTails(search: string = ''): void {
     this.cocktailListLoading.next(true);
     this.cocktailListError.next(null);
     this.cocktailDataService.getAll(search).subscribe({
@@ -41,7 +41,7 @@ export class CocktailListFacadeService {
           throw new Error(response.drinks);
 
         const processedCocktailList = response.drinks.map(
-          cocktail => this.cocktailAdapterService.transforrmDTOToSummary(cocktail)
+          cocktail => this.cocktailAdapterService.transformDTOToSummary(cocktail)
         );
         this.processedCocktailList.next(processedCocktailList);
       },

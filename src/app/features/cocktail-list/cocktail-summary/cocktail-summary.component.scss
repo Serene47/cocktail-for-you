@@ -1,18 +1,28 @@
 @use "variables";
 
-
 .summary-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1rem;
   padding: 1rem;
+  text-decoration: none;
+  color: variables.$text-dark;
   background-color: variables.$neutral;
   border: 1px solid variables.$secondary;
   border-radius: .25rem;
 
+  &:hover, &:active {
+    outline: 1px solid variables.$primary;
+    outline-offset: 2px;
+  }
+
   &__image {
     width: 100%;
     aspect-ratio: 1;
+    vertical-align: bottom;
+
+    &:hover, &:active {
+      outline: none;
+    }
   }
 }

@@ -8,7 +8,7 @@ import { CocktailDetail } from '../models/interfaces/cocktail.interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class CocktailDetialsFacadeService {
+export class CocktailDetailsFacadeService {
   cocktailDataService = inject(CocktailsDataService);
   cocktailAdapterService = inject(CocktailAdapterService);
 
@@ -19,7 +19,7 @@ export class CocktailDetialsFacadeService {
   private cocktailDetailsLoading = new BehaviorSubject(false);
   cocktailDetailsLoading$ = this.cocktailDetailsLoading.asObservable();
 
-  getCocktailDetails(id: string): void {
+  fetchCocktailDetails(id: string): void {
     this.cocktailDetailsLoading.next(true);
     this.cocktailDetailsError.next(null);
     this.cocktailDataService.getById(id).subscribe({
@@ -32,7 +32,7 @@ export class CocktailDetialsFacadeService {
         if (!response.drinks || !response.drinks[0])
           throw new Error('no drinks present');
 
-        const cocktailDetails = this.cocktailAdapterService.transforrmDTOToDetails(response.drinks[0]);
+        const cocktailDetails = this.cocktailAdapterService.transformDTOToDetails(response.drinks[0]);
         this.cocktailDetails.next(cocktailDetails);
       },
       error: () => {

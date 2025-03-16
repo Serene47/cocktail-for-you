@@ -17,7 +17,7 @@ export class CocktailListComponent implements OnInit {
   @Input() type = '';
 
   ngOnInit(): void {
-    this.cocktailFacdeService.getAllCockTails(this.type);
+    this.cocktailFacdeService.fetchAllCockTails(this.type);
   }
 
 }

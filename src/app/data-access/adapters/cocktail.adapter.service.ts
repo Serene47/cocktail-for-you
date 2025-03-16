@@ -7,7 +7,7 @@ import { CocktailDetail, CocktailDTO, CocktailIngredients, CocktailSummary } fro
 })
 export class CocktailAdapterService {
 
-  transforrmDTOToSummary(cocktailDTO: CocktailDTO): CocktailSummary {
+  transformDTOToSummary(cocktailDTO: CocktailDTO): CocktailSummary {
     return {
       id: cocktailDTO.idDrink,
       alcoholicStatus: cocktailDTO.strAlcoholic,
@@ -17,7 +17,7 @@ export class CocktailAdapterService {
     }
   }
 
-  transforrmDTOToDetails(cocktailDTO: CocktailDTO): CocktailDetail {
+  transformDTOToDetails(cocktailDTO: CocktailDTO): CocktailDetail {
     const ingredients = this.transformIngredients(cocktailDTO);
     return {
       id: cocktailDTO.idDrink,
@@ -40,7 +40,7 @@ export class CocktailAdapterService {
 
       const measurementKey = `${COCKTAIL_INGREDIENT_MEASURE_KEY}${match[1]}` as keyof CocktailDTO;
       const measurement = cocktailDTO[measurementKey] || '-';
-      acc.push({ name: key, measurement })
+      acc.push({ name: value, measurement })
       return acc;
     }, ingredients);
   }
