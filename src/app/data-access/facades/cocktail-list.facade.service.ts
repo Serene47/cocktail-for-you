@@ -8,7 +8,7 @@ import { CocktailSummary } from '../models/interfaces/cocktail.interfaces';
 @Injectable({
   providedIn: 'root'
 })
-export class CocktailFacadeService {
+export class CocktailListFacadeService {
   cocktailDataService = inject(CocktailsDataService);
   cocktailAdapterService = inject(CocktailAdapterService);
 
@@ -27,17 +27,18 @@ export class CocktailFacadeService {
       })
     );
 
-  getAllCockTails(search: string): void {
+  getAllCockTails(search: string = ''): void {
     this.cocktailListLoading.next(true);
     this.cocktailListError.next(null);
     this.cocktailDataService.getAll(search).subscribe({
       next: response => {
         this.cocktailListLoading.next(false);
 
-        if (typeof response.drinks === 'string') {
-          this.cocktailListError.next(COCKTAIL_LIST_ERROR_MESSAGE);
-          return
-        }
+        if (!response.drinks)
+          throw new Error('no drinks present');
+
+        if (typeof response.drinks === 'string')
+          throw new Error(response.drinks);
 
         const processedCocktailList = response.drinks.map(
           cocktail => this.cocktailAdapterService.transforrmDTOToSummary(cocktail)

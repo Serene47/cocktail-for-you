@@ -21,7 +21,11 @@ export interface CocktailDTO {
 }
 
 export interface CocktailSearchResponse {
-  drinks: CocktailDTO[] | string;
+  drinks: CocktailDTO[] | string | null;
+}
+
+export interface CocktailLookupResponse {
+  drinks: CocktailDTO[] | string | null;
 }
 
 export interface CocktailSummary {
@@ -34,19 +38,17 @@ export interface CocktailSummary {
 
 export interface CocktailIngredients {
   name: string;
-  measure: string;
-  image: string;
+  measurement: string;
 }
 
 export interface CocktailDetail {
   id: string;
   name: string;
   category: string;
-  alcoholic: string;
+  alcoholicStatus: string;
   image: string;
   instructions: string;
-  ingrediernts: CocktailIngredients[];
-
+  ingredients: CocktailIngredients[];
 }
 
 

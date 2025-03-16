@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { COCKTAIL_ENDPOINTS } from '../models/constants/cocktail.constants';
-import { CocktailSearchResponse } from '../models/interfaces/cocktail.interfaces';
+import { CocktailLookupResponse, CocktailSearchResponse } from '../models/interfaces/cocktail.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,12 @@ import { CocktailSearchResponse } from '../models/interfaces/cocktail.interfaces
 export class CocktailsDataService {
   httpClient = inject(HttpClient);
 
-  getAll(search: string = ''): Observable<CocktailSearchResponse> {
-    return this.httpClient.get<CocktailSearchResponse>(`${environment.cockTailAPI}/${COCKTAIL_ENDPOINTS.SEARCH}?s=${search}`);
+  getAll(keyword: string = ''): Observable<CocktailSearchResponse> {
+    return this.httpClient.get<CocktailSearchResponse>(`${environment.cockTailAPI}/${COCKTAIL_ENDPOINTS.SEARCH}${keyword}`);
+  }
+
+  getById(id: string) {
+    return this.httpClient.get<CocktailLookupResponse>(`${environment.cockTailAPI}/${COCKTAIL_ENDPOINTS.LOOKUP}${id}`);
   }
 
 }

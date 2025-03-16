@@ -1,6 +1,6 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { CocktailFacadeService } from '../../data-access/facades/cocktail.facade.service';
+import { CocktailListFacadeService } from '../../data-access/facades/cocktail-list.facade.service';
 import { COCKTAIL_LIST_EMPTY_MESSAGE } from '../../data-access/models/constants/cocktail.constants';
 import { CocktailSummaryComponent } from './cocktail-summary/cocktail-summary.component';
 
@@ -11,7 +11,7 @@ import { CocktailSummaryComponent } from './cocktail-summary/cocktail-summary.co
   styleUrl: './cocktail-list.component.scss'
 })
 export class CocktailListComponent implements OnInit {
-  cocktailFacdeService = inject(CocktailFacadeService);
+  cocktailFacdeService = inject(CocktailListFacadeService);
   COCKTAIL_LIST_EMPTY_MESSAGE = COCKTAIL_LIST_EMPTY_MESSAGE;
 
   @Input() type = '';
