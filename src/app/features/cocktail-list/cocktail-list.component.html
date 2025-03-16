@@ -1,6 +1,6 @@
 @if((cocktailFacadeService.filteredCocktails$ | async); as cocktails) {
 
-<h4>{{type | titlecase}} !, you ask for it! We bring it for you!</h4><br>
+<h4>Here are your results for {{type | titlecase}} !</h4><br>
 
 <form class="filters" novalidate>
   <div class="form-group">
@@ -12,7 +12,6 @@
     </select>
   </div>
 </form>
-
 
 <div class="cocktail-grid">
   @for(cocktail of cocktails; track cocktail.id){
@@ -27,4 +26,8 @@
 
 @if((cocktailFacadeService.cocktailListError$ | async); as error) {
 <span>{{error}}</span>
+}
+
+@if(cocktailFacadeService.cocktailListLoading$ | async) {
+<app-loader [extraVerticalMargin]="64"></app-loader>
 }

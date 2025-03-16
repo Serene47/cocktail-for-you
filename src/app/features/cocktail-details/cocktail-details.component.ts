@@ -1,11 +1,12 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CocktailDetailsFacadeService } from '../../data-access/facades/cocktail-details.facade.service';
+import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { CocktailIngredientsComponent } from './cocktail-ingredients/cocktail-ingredients.component';
 
 @Component({
   selector: 'app-cocktail-details',
-  imports: [AsyncPipe, CocktailIngredientsComponent],
+  imports: [AsyncPipe, CocktailIngredientsComponent, LoaderComponent],
   templateUrl: './cocktail-details.component.html',
   styleUrl: './cocktail-details.component.scss'
 })

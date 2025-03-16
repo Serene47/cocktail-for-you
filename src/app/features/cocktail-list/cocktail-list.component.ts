@@ -3,11 +3,12 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { CocktailListFacadeService } from '../../data-access/facades/cocktail-list.facade.service';
 import { DropdownFacadeService } from '../../data-access/facades/dropdown.facade.service';
 import { COCKTAIL_LIST_EMPTY_MESSAGE } from '../../data-access/models/constants/cocktail.constants';
+import { LoaderComponent } from '../../shared/components/loader/loader.component';
 import { CocktailSummaryComponent } from './cocktail-summary/cocktail-summary.component';
 
 @Component({
   selector: 'app-cocktail-list',
-  imports: [AsyncPipe, TitleCasePipe, CocktailSummaryComponent],
+  imports: [AsyncPipe, TitleCasePipe, CocktailSummaryComponent, LoaderComponent],
   templateUrl: './cocktail-list.component.html',
   styleUrl: './cocktail-list.component.scss'
 })

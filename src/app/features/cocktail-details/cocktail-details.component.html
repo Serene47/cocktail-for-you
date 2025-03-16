@@ -30,3 +30,8 @@
 @if((cocktailFacadeService.cocktailDetailsError$ | async); as error) {
 <span>{{error}}</span>
 }
+
+
+@if(cocktailFacadeService.cocktailDetailsLoading$ | async) {
+<app-loader [extraVerticalMargin]="64"></app-loader>
+}
