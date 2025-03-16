@@ -10,6 +10,11 @@ export const COCKTAIL_IMAGE_TYPES = {
   LARGE: 'large'
 } as const;
 
+export const COCKTAIL_ALCOHOL_STATUS = {
+  ALCOHOLIC: 'Alcoholic',
+  NON_ALCOHOLIC: 'Non alcoholic',
+} as const;
+
 export const COCKTAIL_ENDPOINTS = {
   SEARCH: 'search.php?s=',
   LOOKUP: 'lookup.php?i='

@@ -1,6 +1,12 @@
 <a class="summary-card" [routerLink]="[APP_ROUTES.COCKTAIL_DETAILS, cocktail.id]">
+  @if(cocktail.alcoholicStatus){
+  <span class="summary-card__status"
+    [class.summary-card__status--alcoholic]="cocktail.alcoholicStatus === COCKTAIL_ALCOHOL_STATUS.ALCOHOLIC "
+    [class.summary-card__status--non-alcoholic]="cocktail.alcoholicStatus === COCKTAIL_ALCOHOL_STATUS.NON_ALCOHOLIC">
+    {{cocktail.alcoholicStatus | uppercase}}
+  </span>
+  }
   <img loading="lazy" class="summary-card__image" [src]="cocktail.thumbnail" [alt]="cocktail.name">
   <h4 class="summary-card__title">{{cocktail.name}}</h4>
-  <b>{{cocktail.alcoholicStatus}}</b>
-  <span class="summary-card__attribute">{{cocktail.category}}</span>
+  <span class="summary-card__attribute">Category : {{cocktail.category}}</span>
 </a>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { COCKTAIL_ALCOHOL_STATUS } from '../models/constants/cocktail.constants';
 import { DropdownItem } from '../models/interfaces/dropdown.interfaces';
 
 @Injectable({
@@ -13,10 +14,10 @@ export class DropdownFacadeService {
     },
     {
       label: 'Alcoholic',
-      value: 'Alcoholic'
+      value: COCKTAIL_ALCOHOL_STATUS.ALCOHOLIC
     }, {
       label: 'Non alcoholic',
-      value: 'Non alcoholic'
+      value: COCKTAIL_ALCOHOL_STATUS.NON_ALCOHOLIC
     }
   ];
 }

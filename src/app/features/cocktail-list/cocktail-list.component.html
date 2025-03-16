@@ -24,12 +24,12 @@
 </div>
 
 @if(!cocktails.length) {
-<span>{{COCKTAIL_LIST_EMPTY_MESSAGE}}</span>
+<p class="excuse-text">{{COCKTAIL_LIST_EMPTY_MESSAGE}}</p>
 }
 }
 
 @if((cocktailFacadeService.cocktailListError$ | async); as error) {
-<span>{{error}}</span>
+<p class="excuse-text">{{error}}</p>
 }
 
 @if(cocktailFacadeService.cocktailListLoading$ | async) {

@@ -1,4 +1,4 @@
-
+@use "variables";
 
 .navigation {
   margin: 1rem 0;
@@ -20,15 +20,25 @@
 
 .filters {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1fr);
   gap: 1rem;
+  padding: 1rem;
   margin-bottom : 1rem;
+  background-color: variables.$spotlight;
+  border-radius: .25rem;
 
   @media (min-width : 600px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width : 992px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.excuse-text {
+  margin : 2rem 0;
+  font-size: 1.25rem;
+  text-align: center;
+  color : variables.$muted;
 }
