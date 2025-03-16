@@ -57,8 +57,11 @@ export class CocktailListFacadeService {
     })
   }
 
-  updateAlcoholFilter(value: string) {
+  updateAlcoholFilter(value: string): void {
     this.alcoholFilter.next(value);
   }
 
+  resetState(): void {
+    this.updateAlcoholFilter('');
+  }
 }

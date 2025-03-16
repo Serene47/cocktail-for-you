@@ -1,5 +1,6 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CocktailListFacadeService } from '../../data-access/facades/cocktail-list.facade.service';
 import { DropdownFacadeService } from '../../data-access/facades/dropdown.facade.service';
 import { COCKTAIL_LIST_EMPTY_MESSAGE } from '../../data-access/models/constants/cocktail.constants';
@@ -8,11 +9,11 @@ import { CocktailSummaryComponent } from './cocktail-summary/cocktail-summary.co
 
 @Component({
   selector: 'app-cocktail-list',
-  imports: [AsyncPipe, TitleCasePipe, CocktailSummaryComponent, LoaderComponent],
+  imports: [AsyncPipe, TitleCasePipe, CocktailSummaryComponent, LoaderComponent, RouterLink],
   templateUrl: './cocktail-list.component.html',
   styleUrl: './cocktail-list.component.scss'
 })
-export class CocktailListComponent implements OnInit {
+export class CocktailListComponent implements OnInit, OnDestroy {
   dropdownFacadeService = inject(DropdownFacadeService);
   cocktailFacadeService = inject(CocktailListFacadeService);
   COCKTAIL_LIST_EMPTY_MESSAGE = COCKTAIL_LIST_EMPTY_MESSAGE;
@@ -28,4 +29,7 @@ export class CocktailListComponent implements OnInit {
       this.cocktailFacadeService.updateAlcoholFilter(event.target.value);
   }
 
+  ngOnDestroy(): void {
+    this.cocktailFacadeService.resetState();
+  }
 }

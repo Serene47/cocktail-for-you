@@ -1,6 +1,6 @@
-<a class="summary-card" [routerLink]="[cocktail.id, APP_ROUTES.COCKTAIL_DETAILS]">
+<a class="summary-card" [routerLink]="[APP_ROUTES.COCKTAIL_DETAILS, cocktail.id]">
   <img loading="lazy" class="summary-card__image" [src]="cocktail.thumbnail" [alt]="cocktail.name">
   <h4 class="summary-card__title">{{cocktail.name}}</h4>
-  <span>{{cocktail.alcoholicStatus}}</span>
+  <b>{{cocktail.alcoholicStatus}}</b>
   <span class="summary-card__attribute">{{cocktail.category}}</span>
 </a>

@@ -1,3 +1,7 @@
+<div class="navigation">
+  <a [routerLink]="['../../']" class="navigation__item button button-link button-outline ">Back</a>
+</div>
+
 @if((cocktailFacadeService.filteredCocktails$ | async); as cocktails) {
 
 <h4>Here are your results for {{type | titlecase}} !</h4><br>

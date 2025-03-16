@@ -1,3 +1,7 @@
+<div class="navigation">
+  <a [routerLink]="['../../']" class="navigation__item button button-link button-outline ">Back</a>
+</div>
+
 @if((cocktailFacadeService.cocktailDetails$ | async); as cocktail) {
 
 <div class="cocktail-card">
@@ -18,7 +22,7 @@
   <div class="cocktail-card__details">
     <h3 class="cocktail-details__title cocktail-card__title">{{cocktail.name}}</h3>
     <div class="cocktail-details__instructions cocktail-instructions">
-      <h4 class="cocktail-instructions__title">How to make</h4>
+      <h4 class="cocktail-instructions__title">Recipe</h4>
       <p class="cocktail-instructions__content">{{cocktail.instructions}}</p>
     </div>
     <app-cocktail-ingredients [ingredients]="cocktail.ingredients"></app-cocktail-ingredients>

@@ -1,5 +1,9 @@
 @use "variables";
 
+.navigation {
+  margin: 1rem 0;
+}
+
 .cocktail-card {
   display: flex;
   flex-direction: column;

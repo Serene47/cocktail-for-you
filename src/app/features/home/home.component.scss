@@ -31,7 +31,6 @@
 }
 
 .category-card {
-  min-width: 300px;
   padding: 1rem;
   background-color: variables.$neutral;
   border: 1px solid variables.$secondary;
@@ -43,14 +42,15 @@
     outline-offset: 2px;
   }
 
-  @media (min-width: 600px) {
-    min-width: none;
-  }
-
   &__image {
+    min-width: 300px;
     width: 100%;
     max-width: 18.75rem;
     aspect-ratio: 1;
+
+    @media (min-width: 600px) {
+      min-width: none;
+    }
     
     &:hover,&:active {
       outline: none
