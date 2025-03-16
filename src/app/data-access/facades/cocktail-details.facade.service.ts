@@ -26,11 +26,15 @@ export class CocktailDetailsFacadeService {
       next: response => {
         this.cocktailDetailsLoading.next(false);
 
-        if (typeof response.drinks === 'string')
-          throw new Error(response.drinks);
+        if (typeof response.drinks === 'string') {
+          this.cocktailDetailsError.next(COCKTAIL_DETAILS_ERROR_MESSAGE);
+          return;
+        }
 
-        if (!response.drinks || !response.drinks[0])
-          throw new Error('no drinks present');
+        if (!response.drinks || !response.drinks[0]) {
+          this.cocktailDetailsError.next(COCKTAIL_DETAILS_ERROR_MESSAGE);
+          return;
+        }
 
         const cocktailDetails = this.cocktailAdapterService.transformDTOToDetails(response.drinks[0]);
         this.cocktailDetails.next(cocktailDetails);

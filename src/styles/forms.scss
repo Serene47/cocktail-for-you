@@ -1,0 +1,36 @@
+@use "variables";
+
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: stretch;
+  width: 100%;
+}
+
+.form-label {
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  background-color: #fff;
+  border: 1px solid variables.$muted;
+  border-radius: .375rem ;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem .75rem;
+
+
+  &:focus {
+    outline: 1px solid #86b7fe; 
+  }
+}

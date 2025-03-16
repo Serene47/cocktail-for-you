@@ -1,18 +1,30 @@
-@if((cocktailFacdeService.filteredCocktails$ | async); as cocktails) {
+@if((cocktailFacadeService.filteredCocktails$ | async); as cocktails) {
 
-@if(cocktails.length > 0) {
-<h3>You asked for {{type | titlecase}}, We got {{type | titlecase}}</h3>
-}
+<h4>{{type | titlecase}} !, you ask for it! We bring it for you!</h4><br>
+
+<form class="filters" novalidate>
+  <div class="form-group">
+    <label class="form-label" for="alcoholic-status">Alcoholic status</label>
+    <select name="alcoholic-status" id="alcoholic-status" class="form-select" (change)="onAlcoholFilterChange($event)">
+      @for(item of dropdownFacadeService.alcoholicStatusDropdown; track $index) {
+      <option [value]="item.value">{{item.label}}</option>
+      }
+    </select>
+  </div>
+</form>
+
 
 <div class="cocktail-grid">
   @for(cocktail of cocktails; track cocktail.id){
   <app-cocktail-summary [cocktail]="cocktail"></app-cocktail-summary>
-  } @empty {
-  <span>{{COCKTAIL_LIST_EMPTY_MESSAGE}}</span>
   }
 </div>
+
+@if(!cocktails.length) {
+<span>{{COCKTAIL_LIST_EMPTY_MESSAGE}}</span>
+}
 }
 
-@if((cocktailFacdeService.cocktailListError$ | async); as error) {
+@if((cocktailFacadeService.cocktailListError$ | async); as error) {
 <span>{{error}}</span>
 }

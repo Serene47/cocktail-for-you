@@ -18,12 +18,13 @@ export class CocktailListFacadeService {
   cocktailListLoading$ = this.cocktailListLoading.asObservable();
 
   private processedCocktailList = new Subject<CocktailSummary[]>();
-  alcoholFilter = new BehaviorSubject<string>('');
+  private alcoholFilter = new BehaviorSubject<string>('');
 
   filteredCocktails$ = combineLatest([this.processedCocktailList, this.alcoholFilter])
     .pipe(
       map(([cocktails, alcoholFilter]) => {
-        return cocktails;
+        if (!alcoholFilter) return cocktails;
+        return cocktails.filter(cocktail => cocktail.alcoholicStatus === alcoholFilter);
       })
     );
 
@@ -34,11 +35,15 @@ export class CocktailListFacadeService {
       next: response => {
         this.cocktailListLoading.next(false);
 
-        if (!response.drinks)
-          throw new Error('no drinks present');
+        if (!response.drinks) {
+          this.cocktailListError.next(COCKTAIL_LIST_ERROR_MESSAGE);
+          return;
+        }
 
-        if (typeof response.drinks === 'string')
-          throw new Error(response.drinks);
+        if (typeof response.drinks === 'string') {
+          this.cocktailListError.next(COCKTAIL_LIST_ERROR_MESSAGE);
+          return;
+        }
 
         const processedCocktailList = response.drinks.map(
           cocktail => this.cocktailAdapterService.transformDTOToSummary(cocktail)
@@ -50,6 +55,10 @@ export class CocktailListFacadeService {
         this.cocktailListError.next(COCKTAIL_LIST_ERROR_MESSAGE);
       }
     })
+  }
+
+  updateAlcoholFilter(value: string) {
+    this.alcoholFilter.next(value);
   }
 
 }
