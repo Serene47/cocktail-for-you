@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { COCKTAIL_INGREDIENTS_MOCK_1 } from '../../../data-access/models/mocks/cocktail.mocks';
 import { CocktailIngredientsComponent } from './cocktail-ingredients.component';
 
 describe('CocktailIngredientsComponent', () => {
@@ -10,10 +11,11 @@ describe('CocktailIngredientsComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CocktailIngredientsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CocktailIngredientsComponent);
     component = fixture.componentInstance;
+    component.ingredients = COCKTAIL_INGREDIENTS_MOCK_1;
     fixture.detectChanges();
   });
 

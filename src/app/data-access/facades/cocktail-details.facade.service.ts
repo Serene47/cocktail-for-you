@@ -46,8 +46,4 @@ export class CocktailDetailsFacadeService {
     })
   }
 
-  resetState() {
-    this.cocktailDetailsError.next(null);
-  }
-
 }

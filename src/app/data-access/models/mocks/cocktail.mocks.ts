@@ -1,4 +1,4 @@
-import { CocktailDTO, CocktailSearchResponse } from "../interfaces/cocktail.interfaces";
+import { CocktailDetail, CocktailDTO, CocktailIngredients, CocktailLookupResponse, CocktailSearchResponse, CocktailSummary } from "../interfaces/cocktail.interfaces";
 
 export const COCKTAIL_DTO_MOCK_1: CocktailDTO = {
   "idDrink": "11007",
@@ -89,6 +89,63 @@ export const COCKTAIL_DTO_MOCK_2: CocktailDTO = {
   "strMeasure15": null,
 }
 
-export const COCKTAIL_SEARCH_RESPONSE_MOCK: CocktailSearchResponse = {
+export const COCKTAIL_SEARCH_SUCCESS_RESPONSE_MOCK: CocktailSearchResponse = {
   drinks: [COCKTAIL_DTO_MOCK_1, COCKTAIL_DTO_MOCK_2]
 };
+
+export const COCKTAIL_SEARCH_NOT_FOUND_RESPONSE_MOCK: CocktailSearchResponse = {
+  drinks: 'no data found'
+};
+
+export const COCKTAIL_SEARCH_NULL_RESPONSE_MOCK: CocktailSearchResponse = {
+  drinks: null
+};
+
+export const COCKTAIL_LOOKUP_SUCCESS_RESPONSE_MOCK: CocktailLookupResponse = {
+  drinks: [COCKTAIL_DTO_MOCK_1]
+};
+
+export const COCKTAIL_LOOKUP_NOT_FOUND_RESPONSE_MOCK: CocktailSearchResponse = {
+  drinks: 'no data found'
+};
+
+export const COCKTAIL_LOOKUP_NULL_RESPONSE_MOCK: CocktailSearchResponse = {
+  drinks: null
+};
+
+export const COCKTAIL_SUMMARY_MOCK_1: CocktailSummary = {
+  id: '11007',
+  alcoholicStatus: 'Alcoholic',
+  category: 'Ordinary Drink',
+  name: 'Margarita',
+  thumbnail: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/medium'
+}
+
+export const COCKTAIL_SUMMARY_MOCK_2: CocktailSummary = {
+  id: '11000',
+  alcoholicStatus: 'Alcoholic',
+  category: 'Cocktail',
+  name: 'Mojito',
+  thumbnail: 'https://www.thecocktaildb.com/images/media/drink/metwgh1606770327.jpg/medium'
+}
+
+export const COCKTAIL_SUMMARY_LIST_MOCK = [COCKTAIL_SUMMARY_MOCK_1, COCKTAIL_SUMMARY_MOCK_2];
+
+export const COCKTAIL_INGREDIENTS_MOCK_1: CocktailIngredients[] = [
+  { name: 'Tequila', measurement: '1 1/2 oz ' },
+  { name: 'Triple sec', measurement: '1/2 oz ' },
+  { name: 'Lime juice', measurement: '1 oz ' },
+  { name: 'Salt', measurement: '-' }
+]
+
+export const COCKTAIL_DETAIL_MOCK_1: CocktailDetail = {
+  id: '11007',
+  alcoholicStatus: 'Alcoholic',
+  category: 'Ordinary Drink',
+  name: 'Margarita',
+  image: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/large',
+  instructions: 'Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.',
+  ingredients: COCKTAIL_INGREDIENTS_MOCK_1
+}
+
+
