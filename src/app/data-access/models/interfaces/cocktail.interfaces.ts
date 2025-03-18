@@ -1,3 +1,4 @@
+import { BadgeVariant } from "../../../shared/components/badge/models/badge.types";
 
 export interface CocktailDTO {
   // Basic drink identification
@@ -32,6 +33,7 @@ export interface CocktailSummary {
   id: string;
   name: string;
   category: string;
+  badgeVariant?: BadgeVariant;
   alcoholicStatus: string;
   thumbnail: string;
 }
@@ -45,6 +47,8 @@ export interface CocktailDetail {
   id: string;
   name: string;
   category: string;
+  glassType: string;
+  badgeVariant?: BadgeVariant;
   alcoholicStatus: string;
   image: string;
   instructions: string;

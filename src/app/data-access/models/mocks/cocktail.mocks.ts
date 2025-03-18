@@ -118,11 +118,13 @@ export const COCKTAIL_SUMMARY_MOCK_1: CocktailSummary = {
   alcoholicStatus: 'Alcoholic',
   category: 'Ordinary Drink',
   name: 'Margarita',
+  badgeVariant: "info",
   thumbnail: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/medium'
 }
 
 export const COCKTAIL_SUMMARY_MOCK_2: CocktailSummary = {
   id: '11000',
+  badgeVariant: "info",
   alcoholicStatus: 'Alcoholic',
   category: 'Cocktail',
   name: 'Mojito',
@@ -140,8 +142,10 @@ export const COCKTAIL_INGREDIENTS_MOCK_1: CocktailIngredients[] = [
 
 export const COCKTAIL_DETAIL_MOCK_1: CocktailDetail = {
   id: '11007',
+  badgeVariant: "info",
   alcoholicStatus: 'Alcoholic',
   category: 'Ordinary Drink',
+  glassType: "Cocktail glass",
   name: 'Margarita',
   image: 'https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg/large',
   instructions: 'Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.',
