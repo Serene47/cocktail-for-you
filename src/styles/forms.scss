@@ -30,6 +30,7 @@
 
 
   &:focus {
-    outline: 1px solid #86b7fe; 
+    outline: 1px solid variables.$muted; 
+    outline-offset: 1px;
   }
 }

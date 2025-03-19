@@ -5,5 +5,12 @@
   }
   <img loading="lazy" class="summary-card__image" [src]="cocktail.thumbnail" [alt]="cocktail.name">
   <h4 class="summary-card__title">{{cocktail.name}}</h4>
-  <span class="summary-card__attribute">Category : {{cocktail.category}}</span>
+
+  <ul class="summary-card__attribute summary-attributes">
+    <li class="summary-attributes__item">
+      <span>Category : </span>
+      <b>{{cocktail.category}}</b>
+    </li>
+  </ul>
+
 </a>

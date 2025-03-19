@@ -12,6 +12,11 @@
   background-color: transparent;
   color : variables.$text-dark;
   border : 1px solid variables.$text-dark;
+
+  &:focus {
+    outline-offset: .063rem;
+    outline: 1px solid currentColor;
+  }
 }
 
 .button-outline-primary {

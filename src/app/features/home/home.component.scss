@@ -37,9 +37,9 @@
   border-radius: .5rem;
   text-decoration: none;
 
-  &:hover,&:active {
+  &:hover,&:active, &:focus {
     outline: 1px solid variables.$primary;
-    outline-offset: 2px;
+    outline-offset: .25rem;
   }
 
   &__image {
@@ -52,7 +52,7 @@
       min-width: none;
     }
     
-    &:hover,&:active {
+    &:hover,&:active, &:focus {
       outline: none
     }
   }
