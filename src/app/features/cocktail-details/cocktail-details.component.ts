@@ -1,5 +1,5 @@
 import { AsyncPipe, UpperCasePipe } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CocktailDetailsFacadeService } from '../../data-access/facades/cocktail-details.facade.service';
 import { BadgeComponent } from '../../shared/components/badge/badge.component';
@@ -10,7 +10,8 @@ import { CocktailIngredientsComponent } from './cocktail-ingredients/cocktail-in
   selector: 'app-cocktail-details',
   imports: [AsyncPipe, CocktailIngredientsComponent, LoaderComponent, RouterLink, BadgeComponent, UpperCasePipe],
   templateUrl: './cocktail-details.component.html',
-  styleUrl: './cocktail-details.component.scss'
+  styleUrl: './cocktail-details.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CocktailDetailsComponent implements OnInit {
   cocktailFacadeService = inject(CocktailDetailsFacadeService);
