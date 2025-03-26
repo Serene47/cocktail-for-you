@@ -17,7 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cocktail-for-you",
+            "outputPath": {
+              "base": "docs",
+              "browser": ""
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -43,6 +46,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "https://serene47.github.io/cocktail-for-you/",
               "budgets": [
                 {
                   "type": "initial",
@@ -58,6 +62,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "baseHref": "/",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
