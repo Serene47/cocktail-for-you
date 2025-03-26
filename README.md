@@ -1,5 +1,14 @@
 # CocktailForYou
 
+Cocktail For You is a web application that allows users to browse and search for various cocktail recipes. The application provides detailed information about each cocktail, including ingredients, preparation steps, and images.
+
+## Features
+
+- **Cocktail List**: Browse a list of cocktails with filtering options.
+- **Cocktail Details**: View detailed information about each cocktail.
+
+# Developer Info
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
 ## Development server

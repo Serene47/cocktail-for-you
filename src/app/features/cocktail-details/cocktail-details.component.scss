@@ -54,6 +54,11 @@
 }
 
 .cocktail-highlights {
+  
+  &__status {
+    float: right;
+    margin-bottom: 1rem;
+  }
 
   &__image {
     width: 100%;

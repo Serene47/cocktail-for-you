@@ -4,7 +4,7 @@
 
 @if((cocktailFacadeService.filteredCocktails$ | async); as cocktails) {
 
-<h4>Here are your results for {{type | titlecase}} !</h4><br>
+<h4 class="results-title">Here are your results for {{type | titlecase}} !</h4>
 
 <form class="filters" novalidate>
   <div class="form-group">

@@ -7,15 +7,19 @@
 <div class="cocktail-card">
   <h4 class="cocktail-card__title cocktail-card__title--sm">{{cocktail.name}}</h4>
   <div class="cocktail-card__highlights cocktail-hightlights">
+    @if(cocktail.badgeVariant){
+    <app-badge [label]="(cocktail.alcoholicStatus | uppercase)" [variant]="cocktail.badgeVariant"
+      class="cocktail-highlights__status"></app-badge>
+    }
     <img class="cocktail-highlights__image" [src]="cocktail.image" [alt]="cocktail.name">
     <ul class="cocktail-highlights__meta cocktail-meta">
       <li class="cocktail-meta__item meta-item">
         <span class="meta-item__label">Category</span>
-        <b class="meta-item__value">{{cocktail.category}}</b>
+        <b class="meta-item__value">{{cocktail.category || '-'}}</b>
       </li>
       <li class="cocktail-meta__item meta-item">
-        <span class="meta-item__label">Alcoholic Status</span>
-        <b class="meta-item__value">{{cocktail.alcoholicStatus}}</b>
+        <span class="meta-item__label">Glass type</span>
+        <b class="meta-item__value">{{cocktail.glassType || '-'}}</b>
       </li>
     </ul>
   </div>

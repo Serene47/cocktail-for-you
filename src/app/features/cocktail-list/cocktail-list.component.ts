@@ -1,5 +1,5 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CocktailListFacadeService } from '../../data-access/facades/cocktail-list.facade.service';
 import { DropdownFacadeService } from '../../data-access/facades/dropdown.facade.service';
@@ -11,7 +11,8 @@ import { CocktailSummaryComponent } from './cocktail-summary/cocktail-summary.co
   selector: 'app-cocktail-list',
   imports: [AsyncPipe, TitleCasePipe, CocktailSummaryComponent, LoaderComponent, RouterLink],
   templateUrl: './cocktail-list.component.html',
-  styleUrl: './cocktail-list.component.scss'
+  styleUrl: './cocktail-list.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CocktailListComponent implements OnInit, OnDestroy {
   dropdownFacadeService = inject(DropdownFacadeService);
